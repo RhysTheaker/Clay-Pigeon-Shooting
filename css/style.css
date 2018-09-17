@@ -21,8 +21,8 @@ body {
 }
 
 #clayPigeonImage {
-  height:10px;
-  width:30px;
+  height:30px;
+  width:70px;
   background: firebrick;
   position: absolute;
 }

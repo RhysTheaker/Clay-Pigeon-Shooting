@@ -3,13 +3,13 @@ $(document).ready(function(){
 
   //Declare global variables
 
-  //Target the ID="clayPigeonImage" so that the clay pigeon can be moved
-  var pigeon = $("#clayPigeonImage");
-  var board = $("#container-top");
+  //Declare variable to monitor the position of the clay pigeon and the container where the clay pigeon exists
+  var pigeon;
+  var board;
 
   //Declare size of the clay pigeon
-  var pigeonWidth = 30;
-  var pigeonHeight = 10;
+  var pigeonWidth;
+  var pigeonHeight;
 
   //Declare size of the container where the pigeon can be shot
   var xBoard = 700;
@@ -48,6 +48,7 @@ $(document).ready(function(){
 
   //When the start button is clicked then run the function
   startBtn.addEventListener("click", function(){
+      createPigeon();
       pigeonMovement();
   });
 
@@ -80,7 +81,7 @@ $(document).ready(function(){
           "top": yLeftPos + "px"
         });
         //Adjust the position of the clay pigeon
-        xLeftPos+=2;
+        xLeftPos++;
         yLeftPos--;
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
@@ -90,7 +91,7 @@ $(document).ready(function(){
           clearInterval(leftInterval);
           $("#clayPigeonImage").remove();
         }
-      }, 1);
+      }, 10);
     }
     //Pigeon starts from the right
     else if (sideChoice == 2){
@@ -107,7 +108,7 @@ $(document).ready(function(){
           "top": yRightPos + "px"
         });
         //Adjust the position of the clay pigeon
-        xRightPos-=2;
+        xRightPos--;
         yRightPos--;
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
@@ -117,7 +118,7 @@ $(document).ready(function(){
           clearInterval(rightInterval);
           $("#clayPigeonImage").remove();
         }
-      }, 1);
+      }, 10);
     }
   }
 
@@ -169,13 +170,23 @@ $(document).ready(function(){
   //Targets elements with the ID="clayPigeonImage". If this elements is clicked then the ID is removed to get rid of the pigeon as it has been "shot"
   function hitCheckListener(){
     $("#clayPigeonImage").click(function(){
-      $("clayPigeonImage").remove();
+      $(this).remove();
     });
   }
 
   //Targets the top container where the pigeon may exist. This creates a div, which contains the pigeon class, which exists within the top container
   function createPigeon(){
     $("#container-top").append("<div id=\"clayPigeonImage\"></div>");
+
+    //Target the ID="clayPigeonImage" so that the clay pigeon can be moved and also the ID="container-top" so that we can calculate collisions
+    pigeon = $("#clayPigeonImage");
+    board = $("#container-top");
+
+    //Declare size of the clay pigeon
+    pigeonWidth = 70;
+    pigeonHeight = 30;
+
+    //Apply a click listener so that if the pigeon is clicked then we remove the pigeon from the screen
     hitCheckListener();
   }
 
