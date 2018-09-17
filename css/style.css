@@ -1,0 +1,54 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 100px auto
+}
+
+.container-top {
+  width: 700px;
+  height: 300px;
+  margin: 0 auto;
+  background-image:radial-gradient(circle at top right, orange 5%, yellow 15%, lightskyblue 18%);
+  position: relative;
+}
+
+.container-bottom {
+  width: 700px;
+  height: 100px;
+  margin: 0 auto;
+  background-image:linear-gradient(lightgreen 20%, forestgreen);
+  position: relative;
+}
+
+#clayPigeonImage {
+  height:10px;
+  width:30px;
+  background: firebrick;
+  position: absolute;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+#btn {
+  font-size: 1.5em;
+  padding:.5em 1.5em;
+  background: none;
+  border-radius: 1.5em;
+  border: 2px solid #999;
+  margin: 5% auto;
+  color:#999;
+  transition: .1s;
+  outline: none;
+}
+#btn:hover {
+  background: #999;
+  color: white;
+  border: 2px solid #999;
+}
+#btn:active {
+  background: #666;
+  color: white;
+  border: 2px solid #666;
+}
