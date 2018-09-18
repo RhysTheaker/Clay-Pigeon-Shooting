@@ -24,6 +24,7 @@ body {
   height:30px;
   width:70px;
   background: firebrick;
+  border-radius: 40%;
   position: absolute;
 }
 

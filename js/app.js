@@ -1,7 +1,7 @@
 //Run this function for when the page has loaded
 $(document).ready(function(){
 
-  //Declare global variables
+  //---------Declare global variables---------
 
   //Declare variable to monitor the position of the clay pigeon and the container where the clay pigeon exists
   var pigeon;
@@ -37,19 +37,24 @@ $(document).ready(function(){
   var leftInterval;
   var rightInterval;
 
-  //Set up a counter to count the number of clay pigeons that have been released
-  var missCount = 0;
-
   //Variable which determines whether the pigeon is released from the right or the left
   var sideChoice;
+
+  //Initialise score as 0
+  var score = 0;
 
   //Targets the element with ID=btn and assigns it to a variable named "startBtn"
   var startBtn = document.getElementById("btn");
 
   //When the start button is clicked then run the function
   startBtn.addEventListener("click", function(){
-      createPigeon();
-      pigeonMovement();
+    var pull = setInterval(function(){
+      //If the pigeon doesn't exist, then create it and initialise the movement
+      if($("#clayPigeonImage").length == 0){
+        createPigeon();
+        pigeonMovement();
+      }
+    }, 1000)
   });
 
 
@@ -85,11 +90,12 @@ $(document).ready(function(){
         yLeftPos--;
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
-        console.log(testColl);
         //If testColl has the value of "1" then we want to stop the setinterval and move on to the next clay pigeon
         if (testColl == 1){
           clearInterval(leftInterval);
           $("#clayPigeonImage").remove();
+          score = score - 10;
+          $("h2").html("Score: " + score)
         }
       }, 10);
     }
@@ -112,11 +118,12 @@ $(document).ready(function(){
         yRightPos--;
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
-        console.log(testColl);
         //If testColl has the value of "1" then we want to stop the setinterval and move on to the next clay pigeon
         if (testColl == 1){
           clearInterval(rightInterval);
           $("#clayPigeonImage").remove();
+          score = score - 10;
+          $("h2").html("Score: " + score)
         }
       }, 10);
     }
@@ -126,23 +133,17 @@ $(document).ready(function(){
   function findPosition(){
     //Find left and top edge of the pigeon
     pigeonLeft = pigeon.offset().left;
-    console.log("pigeon left = " + pigeonLeft);
     pigeonTop = pigeon.offset().top;
-    console.log("pigeonTop = " + pigeonTop);
 
     //Find right edge of the pigeon
     pigeonRight = pigeonLeft + pigeon.width();
-    console.log("pigeonRight = " + pigeonRight);
 
     //Find left and top edge of the board
     boardLeft = board.offset().left;
-    console.log("boardLeft = " + boardLeft);
     boardTop = board.offset().top;
-    console.log("boardTop = " + boardTop);
 
     //Find right edge of the board
     boardRight = boardLeft + board.width();
-    console.log("boardRight = " + boardRight);
 
     //Test whether or not the clay pigeon has collided with the boarder
     var coll = collide();
@@ -171,6 +172,8 @@ $(document).ready(function(){
   function hitCheckListener(){
     $("#clayPigeonImage").click(function(){
       $(this).remove();
+      score = score + 40;
+      $("h2").html("Score: " + score)
     });
   }
 
@@ -191,8 +194,11 @@ $(document).ready(function(){
   }
 
 
+  function missedListener(){
 
+  }
 
+  //if the large div has been clicked AND the ID="clayPigeonImage" does not exist then
 
 
 
