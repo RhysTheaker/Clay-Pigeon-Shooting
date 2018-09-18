@@ -1,8 +1,7 @@
 //Run this function for when the page has loaded
 $(document).ready(function(){
 
-  //---------Declare global variables---------
-
+  // ---------------------Globals---------------------
   //Declare variable to monitor the position of the clay pigeon and the container where the clay pigeon exists
   var pigeon;
   var board;
@@ -44,40 +43,39 @@ $(document).ready(function(){
   var score = 0;
 
   //Count the number of pigeons that have been released
-  var pigeonCount = 0;
+  var pigeonCount;
 
-  //Targets the element with ID=btn and assigns it to a variable named "startBtn"
-  var startBtn = document.getElementById("btn");
+  //Variable which retains the previous score
+  var previousScore = 0;
+  // ------------------End of Globals------------------
 
-  //When the start button is clicked then run the function
-  startBtn.addEventListener("click", function(){
+  // ---------------------Run Game--------------------
+  $("#btn").click(function(){
+    reset();
+    playGame();
+  });
+  // --------------------End of Run Game-------------------
+
+  // ---------------------Functions--------------------
+  function playGame(){
+
+    $("#btn").hide();
 
     var pull = setInterval(function(){
       //If the pigeon doesn't exist, then create it and initialise the movement
       if(($("#clayPigeonImage").length == 0) && (pigeonCount < 3)){
         createPigeon();
-        console.log(pigeonCount);
         pigeonMovement();
         pigeonCount++;
       }
       else if ((pigeonCount >= 3) && ($("#clayPigeonImage").length == 0)){
         clearInterval(pull);
+        $("#btn").show();
         $("#container-top").append("<p>GAME OVER! You scored " + score + " points");
+        $("#btn").html("Play Again")
       }
     }, 1000)
-  });
-
-
-
-
-
-
-
-
-
-  // -------------Functions-------------
-
-
+  }
 
   //Function which controls the movement of the clay pigeon
   function pigeonMovement(){
@@ -215,24 +213,35 @@ $(document).ready(function(){
     });
   }
 
+  //Function which compares two numbers and returns the largest number
+  function highestNumber(num1, num2){
+    if(num1 > num2){
+      return num1;
+    }
+    else{
+      return num2;
+    }
+  }
 
+  //Restart the game
+  function reset(){
+    //Reset the pigeon count after each game
+    pigeonCount = 0;
+    //Find the new potential high score
+    var highScore = highestNumber(score, previousScore);
+    //Update the highest score
+    $("#highestScore").html("High Score: " + highScore);
+    //Retain the value of the previous score so we can display the highest score
+    previousScore = score;
+    //Update the previous score value
+    $("#previousScore").html("Previous Score: " + score);
+    //Reset the score for the next game
+    score = 0;
+    //Update the initial score for the next game
+    $("h2").html("Score: " + score);
+    //Remove the final score text from the previous game
+    $("p").remove();
+  }
+  // -------------------End of Functions------------------
 
 });
-
-//------------The Game-----------
-
-//Create a second container which will be the "grass" and where the gun will be placed.
-
-//The clay pidgeon will be shot randomly from the far left and far right of the grass/sky boundary
-
-//The user has one shot to hit the pidgeon
-
-//If the pidgeon is hit, then it disapears and the user gets x points. If the pidgeon is not hit, when it reaches the boundary of the container then it disapears
-
-//If the user misses then he loses points and when the pidgeon hits the boundary of the container it disapears and the gun reloads with a single bullet again for the next Pidgeon
-
-//There is an interval of time, say 5 seconds, where the pidgeon will be released
-
-//Each round will consist of a number of pidgeons, say 10, rather than a time limit
-
-//Have a condition where if either the clay pidgeon has been clicked or the pidgeon has hit the boarder of the container then start the next event of a pidgeon being released

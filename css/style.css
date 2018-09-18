@@ -20,6 +20,17 @@ p {
   font-weight: bold;
 }
 
+h2 {
+  display: inline-block;
+  margin: 5px 30px;
+  color: red;
+}
+
+h3 {
+  display: inline;
+  margin: 5px 30px;
+}
+
 .container-top:hover {
   cursor: crosshair;
 }
