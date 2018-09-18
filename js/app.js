@@ -94,8 +94,8 @@ $(document).ready(function(){
           "top": yLeftPos + "px"
         });
         //Adjust the position of the clay pigeon
-        xLeftPos++;
-        yLeftPos--;
+        xLeftPos = newXLeft(xLeftPos);
+        yLeftPos = newYLeft(yLeftPos);
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
         //If testColl has the value of "1" then we want to stop the setinterval and move on to the next clay pigeon
@@ -105,7 +105,7 @@ $(document).ready(function(){
           score = score - 10;
           $("h2").html("Score: " + score)
         }
-      }, 10);
+      }, 1);
     }
     //Pigeon starts from the right
     else if (sideChoice == 2){
@@ -120,8 +120,8 @@ $(document).ready(function(){
           "top": yRightPos + "px"
         });
         //Adjust the position of the clay pigeon
-        xRightPos--;
-        yRightPos--;
+        xRightPos = newXRight(xRightPos);
+        yRightPos = newYRight(yRightPos);
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
         //If testColl has the value of "1" then we want to stop the setinterval and move on to the next clay pigeon
@@ -131,7 +131,7 @@ $(document).ready(function(){
           score = score - 10;
           $("h2").html("Score: " + score)
         }
-      }, 10);
+      }, 1);
     }
   }
 
@@ -221,6 +221,30 @@ $(document).ready(function(){
     else{
       return num2;
     }
+  }
+
+  //New x-coordinate for the pigeon that begins on the left hand side
+  function newXLeft(xval){
+    xval++;
+    return xval;
+  }
+
+  //New y-coordinate for the pigeon that begins on the left hand side
+  function newYLeft(yval){
+    yval--;
+    return yval;
+  }
+
+  //New x-coordinate for the pigeon that begins on the right hand side
+  function newXRight(xval){
+    xval--;
+    return xval;
+  }
+
+  //New y-coordinate for the pigeon that begins on the right hand side
+  function newYRight(yval){
+    yval--;
+    return yval;
   }
 
   //Restart the game
