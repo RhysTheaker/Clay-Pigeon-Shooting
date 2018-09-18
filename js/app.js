@@ -43,19 +43,31 @@ $(document).ready(function(){
   //Initialise score as 0
   var score = 0;
 
+  //Count the number of pigeons that have been released
+  var pigeonCount = 0;
+
   //Targets the element with ID=btn and assigns it to a variable named "startBtn"
   var startBtn = document.getElementById("btn");
 
   //When the start button is clicked then run the function
   startBtn.addEventListener("click", function(){
+
     var pull = setInterval(function(){
       //If the pigeon doesn't exist, then create it and initialise the movement
-      if($("#clayPigeonImage").length == 0){
+      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 3)){
         createPigeon();
+        console.log(pigeonCount);
         pigeonMovement();
+        pigeonCount++;
+      }
+      else if ((pigeonCount >= 3) && ($("#clayPigeonImage").length == 0)){
+        clearInterval(pull);
+        $("#container-top").append("<p>GAME OVER! You scored " + score + " points");
       }
     }, 1000)
   });
+
+
 
 
 
