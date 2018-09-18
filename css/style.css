@@ -1,3 +1,4 @@
+/****************** Daytime ******************/
 body {
   font-family: sans-serif;
   text-align: center;
@@ -10,6 +11,54 @@ body {
   margin: 0 auto;
   background-image:radial-gradient(circle at top right, orange 5%, yellow 15%, lightskyblue 18%);
   position: relative;
+}
+
+.navbar {
+  width: 700px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: white;
+  display: inline-block;
+  border: 3px solid #fafafa;
+}
+
+p {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 300px;
+  color: red;
+  font-weight: bold;
+}
+
+.leftBtn {
+  float: left;
+  background-color: white;
+  border-color: white;
+  font-size: 16px;
+  margin: 12px;
+}
+
+.rightBtn {
+  float: right;
+  background-color: white;
+  border-color: white;
+  font-size: 16px;
+  margin: 12px;
+}
+
+.leftBtn:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.rightBtn:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 p {

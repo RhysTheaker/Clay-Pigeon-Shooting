@@ -1,0 +1,127 @@
+/****************** Nighttime ******************/
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 100px auto
+}
+
+.container-top {
+  width: 700px;
+  height: 300px;
+  margin: 0 auto;
+  background-image:radial-gradient(circle at top right, white 5%, #fafafa 15%, midnightblue 18%);
+  position: relative;
+}
+
+.navbar {
+  width: 700px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: white;
+  display: inline-block;
+  border: 3px solid #fafafa;
+}
+
+p {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 300px;
+  color: red;
+  font-weight: bold;
+}
+
+.leftBtn {
+  float: left;
+  background-color: white;
+  border-color: white;
+  font-size: 16px;
+  margin: 12px;
+}
+
+.rightBtn {
+  float: right;
+  background-color: white;
+  border-color: white;
+  font-size: 16px;
+  margin: 12px;
+}
+
+.leftBtn:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.rightBtn:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 300px;
+  color: red;
+  font-weight: bold;
+}
+
+h2 {
+  display: inline-block;
+  margin: 5px 30px;
+  color: red;
+}
+
+h3 {
+  display: inline;
+  margin: 5px 30px;
+}
+
+.container-top:hover {
+  cursor: crosshair;
+}
+
+.container-bottom {
+  width: 700px;
+  height: 100px;
+  margin: 0 auto;
+  background-image:linear-gradient(to top, black 5%, darkgreen);
+  position: relative;
+}
+
+#clayPigeonImage {
+  height:30px;
+  width:70px;
+  background: firebrick;
+  border-radius: 40%;
+  position: absolute;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+#btn {
+  font-size: 1.5em;
+  padding:.5em 1.5em;
+  background-color: midnightblue;
+  border-radius: 1.5em;
+  border: 2px solid black;
+  margin: 5% auto;
+  color: white;
+  transition: .1s;
+  outline: none;
+}
+#btn:hover {
+  background: black;
+  color: white;
+  border: 2px solid white;
+}
+#btn:active {
+  background: #666;
+  color: white;
+  border: 2px solid #666;
+}
