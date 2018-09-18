@@ -73,8 +73,6 @@ $(document).ready(function(){
     sideChoice = pigeonStartSide();
     //Pigeon starts from the left
     if (sideChoice == 1){
-      // //Initialise the interval time
-      // clearInterval(leftInterval);
       //Initialise the coordinates of the pigeon
       xLeftPos = 1;
       yLeftPos = (yBoard - 1 - pigeonHeight);
@@ -101,8 +99,6 @@ $(document).ready(function(){
     }
     //Pigeon starts from the right
     else if (sideChoice == 2){
-      // //Initialise the interval time
-      // clearInterval(rightInterval);
       //Initialise the coordinates of the pigeon
       xRightPos = (xBoard - pigeonWidth - 1);
       yRightPos = (yBoard - 1 - pigeonHeight);
@@ -179,7 +175,11 @@ $(document).ready(function(){
 
   //Targets the top container where the pigeon may exist. This creates a div, which contains the pigeon class, which exists within the top container
   function createPigeon(){
+    //Create a new div, within the div with ID="container-top", which has an ID="clayPigeonImage" that makes the pigeon
     $("#container-top").append("<div id=\"clayPigeonImage\"></div>");
+
+    //Initialise the listener for if the user misses the pidgeon
+    toggleMissListener();
 
     //Target the ID="clayPigeonImage" so that the clay pigeon can be moved and also the ID="container-top" so that we can calculate collisions
     pigeon = $("#clayPigeonImage");
@@ -193,13 +193,15 @@ $(document).ready(function(){
     hitCheckListener();
   }
 
-
-  function missedListener(){
-
+  //If the container where the pigeon may exist is clicked AND the ID corresponding to the pigeon is still present within the HTML then disable the on-click event corresponding to the pigeon div
+  function toggleMissListener(){
+    $("#container-top").click(function(){
+      //If you have clicked and the pigeon has not been hit then remove the ability to click the pigeon
+      if($("#clayPigeonImage").length != 0){
+        $("#clayPigeonImage").off("click");
+      }
+    });
   }
-
-  //if the large div has been clicked AND the ID="clayPigeonImage" does not exist then
-
 
 
 
