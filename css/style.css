@@ -1,6 +1,6 @@
 /****************** Daytime ******************/
 body {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
   text-align: center;
   margin: 100px auto
 }
@@ -124,4 +124,17 @@ h3 {
   text-decoration: underline;
   font-weight: bold;
   color: red;
+}
+
+.gameInstructions {
+  height: 80px;
+  width: 800px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+#instructionsHeading {
+  display: block;
+  color: black;
+  text-decoration: underline;
 }

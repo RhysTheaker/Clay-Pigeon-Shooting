@@ -82,11 +82,14 @@ $(document).ready(function(){
   $("#easy").click(function(){
     $("button").removeClass("diff");
     $(this).addClass("diff");
-    $(".container-top, .container-bottom").css({
+    $(".container-top, .container-bottom, .gameInstructions").css({
       "width": "800px"
     });
     $(".container-top").css({
       "height": "450px"
+    });
+    $(".gameInstructions").css({
+      "height": "80px"
     });
     pigeonWidth = 100;
     pigeonHeight = 50;
@@ -101,11 +104,14 @@ $(document).ready(function(){
   $("#medium").click(function(){
     $("button").removeClass("diff");
     $(this).addClass("diff");
-    $(".container-top, .container-bottom").css({
+    $(".container-top, .container-bottom, .gameInstructions").css({
       "width": "700px"
     });
     $(".container-top").css({
       "height": "350px"
+    });
+    $(".gameInstructions").css({
+      "height": "100px"
     });
     pigeonWidth = 80;
     pigeonHeight = 40;
@@ -120,11 +126,14 @@ $(document).ready(function(){
   $("#hard").click(function(){
     $("button").removeClass("diff");
     $(this).addClass("diff");
-    $(".container-top, .container-bottom").css({
+    $(".container-top, .container-bottom, .gameInstructions").css({
       "width": "500px"
     });
     $(".container-top").css({
       "height": "200px"
+    });
+    $(".gameInstructions").css({
+      "height": "120px"
     });
     pigeonWidth = 60;
     pigeonHeight = 30;
@@ -149,6 +158,7 @@ $(document).ready(function(){
     $("#btn").hide();
     $(".leftBtn").hide();
     $(".rightBtn").hide();
+    $(".gameInstructions").hide();
 
     var pull = setInterval(function(){
       //If the pigeon doesn't exist, then create it and initialise the movement
