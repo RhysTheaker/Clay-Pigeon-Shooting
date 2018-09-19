@@ -7,12 +7,12 @@ $(document).ready(function(){
   var board;
 
   //Declare size of the clay pigeon
-  var pigeonWidth;
-  var pigeonHeight;
+  var pigeonWidth = 100;
+  var pigeonHeight = 50;
 
   //Declare size of the container where the pigeon can be shot
-  var xBoard = 700;
-  var yBoard = 300;
+  var xBoard = $(".container-top").width();
+  var yBoard = $(".container-top").height();
 
   //Coordinates of the pigeon
   var pigeonLeft;
@@ -50,6 +50,92 @@ $(document).ready(function(){
   // ------------------End of Globals------------------
 
   // ---------------------Run Game--------------------
+  //Apply on-click functionality to change either the background or the difficulty of the game
+
+  //Change background display to day
+  $("#day").click(function(){
+    $(".container-top").css({
+      "background-image": "radial-gradient(circle at top right, orange 5%, yellow 15%, lightskyblue 18%)"
+    });
+    $(".container-bottom").css({
+      "background-image": "linear-gradient(lightgreen 20%, forestgreen)"
+    });
+    $("#btn").css({
+      "background-color": "lightskyblue"
+    })
+  });
+
+  //Change background display to night
+  $("#night").click(function(){
+    $(".container-top").css({
+      "background-image": "radial-gradient(circle at top right, white 5%, #fafafa 15%, midnightblue 18%)"
+    });
+    $(".container-bottom").css({
+      "background-image": "linear-gradient(to top, black 5%, darkgreen)"
+    });
+    $("#btn").css({
+      "background-color": "midnightblue"
+    })
+  });
+
+  //Change difficulty to easy
+  $("#easy").click(function(){
+    $("button").removeClass("diff");
+    $(this).addClass("diff");
+    $(".container-top, .container-bottom").css({
+      "width": "800px"
+    });
+    $(".container-top").css({
+      "height": "450px"
+    });
+    pigeonWidth = 100;
+    pigeonHeight = 50;
+    xBoard = $(".container-top").width();
+    yBoard = $(".container-top").height();
+    $("p").css({
+      "line-height": yBoard + "px"
+    });
+  });
+
+  //Change difficulty to medium
+  $("#medium").click(function(){
+    $("button").removeClass("diff");
+    $(this).addClass("diff");
+    $(".container-top, .container-bottom").css({
+      "width": "700px"
+    });
+    $(".container-top").css({
+      "height": "350px"
+    });
+    pigeonWidth = 80;
+    pigeonHeight = 40;
+    xBoard = $(".container-top").width();
+    yBoard = $(".container-top").height();
+    $("p").css({
+      "line-height": yBoard + "px"
+    });
+  });
+
+  //Change difficulty to hard
+  $("#hard").click(function(){
+    $("button").removeClass("diff");
+    $(this).addClass("diff");
+    $(".container-top, .container-bottom").css({
+      "width": "500px"
+    });
+    $(".container-top").css({
+      "height": "200px"
+    });
+    pigeonWidth = 60;
+    pigeonHeight = 30;
+    xBoard = $(".container-top").width();
+    yBoard = $(".container-top").height();
+    $("p").css({
+      "line-height": yBoard + "px"
+    });
+  });
+
+  //Click the start button to run the game
   $("#btn").click(function(){
     reset();
     playGame();
@@ -57,21 +143,29 @@ $(document).ready(function(){
   // --------------------End of Run Game-------------------
 
   // ---------------------Functions--------------------
+  //Play game
   function playGame(){
 
     $("#btn").hide();
+    $(".leftBtn").hide();
+    $(".rightBtn").hide();
 
     var pull = setInterval(function(){
       //If the pigeon doesn't exist, then create it and initialise the movement
-      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 3)){
+      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 1)){
         createPigeon();
         pigeonMovement();
         pigeonCount++;
       }
-      else if ((pigeonCount >= 3) && ($("#clayPigeonImage").length == 0)){
+      else if ((pigeonCount >= 1) && ($("#clayPigeonImage").length == 0)){
         clearInterval(pull);
         $("#btn").show();
+        $(".rightBtn").show();
+        $(".leftBtn").show();
         $("#container-top").append("<p>GAME OVER! You scored " + score + " points");
+        $("p").css({
+          "line-height": yBoard + "px"
+        });
         $("#btn").html("Play Again")
       }
     }, 1000)
@@ -95,7 +189,7 @@ $(document).ready(function(){
         });
         //Adjust the position of the clay pigeon
         xLeftPos = newXLeft(xLeftPos);
-        yLeftPos = newYLeft(yLeftPos);
+        yLeftPos = newY(yLeftPos);
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
         //If testColl has the value of "1" then we want to stop the setinterval and move on to the next clay pigeon
@@ -105,7 +199,7 @@ $(document).ready(function(){
           score = score - 10;
           $("h2").html("Score: " + score)
         }
-      }, 1);
+      }, 10);
     }
     //Pigeon starts from the right
     else if (sideChoice == 2){
@@ -121,7 +215,7 @@ $(document).ready(function(){
         });
         //Adjust the position of the clay pigeon
         xRightPos = newXRight(xRightPos);
-        yRightPos = newYRight(yRightPos);
+        yRightPos = newY(yRightPos);
         //Find the positions of the pigeon and board and then evaluate decide if the pigeon has either hit the board or now lies beyond the boundaries of the board
         var testColl = findPosition();
         //If testColl has the value of "1" then we want to stop the setinterval and move on to the next clay pigeon
@@ -131,7 +225,7 @@ $(document).ready(function(){
           score = score - 10;
           $("h2").html("Score: " + score)
         }
-      }, 1);
+      }, 10);
     }
   }
 
@@ -188,16 +282,18 @@ $(document).ready(function(){
     //Create a new div, within the div with ID="container-top", which has an ID="clayPigeonImage" that makes the pigeon
     $("#container-top").append("<div id=\"clayPigeonImage\"></div>");
 
+    //Select the size of the pigeon depening on which difficulty mode is currently selected
+    $("#clayPigeonImage").css({
+      "height": pigeonHeight + "px",
+      "width": pigeonWidth + "px"
+    });
+
     //Initialise the listener for if the user misses the pidgeon
     toggleMissListener();
 
     //Target the ID="clayPigeonImage" so that the clay pigeon can be moved and also the ID="container-top" so that we can calculate collisions
     pigeon = $("#clayPigeonImage");
     board = $("#container-top");
-
-    //Declare size of the clay pigeon
-    pigeonWidth = 70;
-    pigeonHeight = 30;
 
     //Apply a click listener so that if the pigeon is clicked then we remove the pigeon from the screen
     hitCheckListener();
@@ -225,26 +321,20 @@ $(document).ready(function(){
 
   //New x-coordinate for the pigeon that begins on the left hand side
   function newXLeft(xval){
-    xval++;
+    xval += 2;
     return xval;
   }
 
   //New y-coordinate for the pigeon that begins on the left hand side
-  function newYLeft(yval){
-    yval--;
+  function newY(yval){
+    yval -= 2;
     return yval;
   }
 
   //New x-coordinate for the pigeon that begins on the right hand side
   function newXRight(xval){
-    xval--;
+    xval -= 2;
     return xval;
-  }
-
-  //New y-coordinate for the pigeon that begins on the right hand side
-  function newYRight(yval){
-    yval--;
-    return yval;
   }
 
   //Restart the game
@@ -266,6 +356,7 @@ $(document).ready(function(){
     //Remove the final score text from the previous game
     $("p").remove();
   }
+
   // -------------------End of Functions------------------
 
 });

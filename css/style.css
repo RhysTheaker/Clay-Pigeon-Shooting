@@ -6,8 +6,8 @@ body {
 }
 
 .container-top {
-  width: 700px;
-  height: 300px;
+  width: 800px;
+  height: 450px;
   margin: 0 auto;
   background-image:radial-gradient(circle at top right, orange 5%, yellow 15%, lightskyblue 18%);
   position: relative;
@@ -19,15 +19,6 @@ body {
   margin: 0 auto;
   background-color: white;
   display: inline-block;
-  border: 3px solid #fafafa;
-}
-
-p {
-  text-align: center;
-  vertical-align: middle;
-  line-height: 300px;
-  color: red;
-  font-weight: bold;
 }
 
 .leftBtn {
@@ -47,24 +38,27 @@ p {
 }
 
 .leftBtn:hover {
-  text-decoration: underline;
   font-weight: bold;
+  cursor: grab;
+}
+
+.leftBtn:focus {
+  outline: none;
+}
+
+.rightBtn:focus {
+  outline: none;
 }
 
 .rightBtn:hover {
-  text-decoration: underline;
   font-weight: bold;
-}
-
-a {
-  text-decoration: none;
-  color: black;
+  cursor: grab;
 }
 
 p {
   text-align: center;
   vertical-align: middle;
-  line-height: 300px;
+  line-height: 400px;
   color: red;
   font-weight: bold;
 }
@@ -85,7 +79,7 @@ h3 {
 }
 
 .container-bottom {
-  width: 700px;
+  width: 800px;
   height: 100px;
   margin: 0 auto;
   background-image:linear-gradient(lightgreen 20%, forestgreen);
@@ -93,8 +87,8 @@ h3 {
 }
 
 #clayPigeonImage {
-  height:30px;
-  width:70px;
+  height: 50px;
+  width: 100px;
   background: firebrick;
   border-radius: 40%;
   position: absolute;
@@ -107,21 +101,27 @@ h3 {
 #btn {
   font-size: 1.5em;
   padding:.5em 1.5em;
-  background: none;
+  background-color: lightskyblue;
   border-radius: 1.5em;
-  border: 2px solid #999;
   margin: 5% auto;
-  color:#999;
+  color: white;
   transition: .1s;
   outline: none;
 }
 #btn:hover {
-  background: #999;
   color: white;
-  border: 2px solid #999;
+  border: 3px solid white;
+  opacity: 0.7;
 }
+
+
 #btn:active {
-  background: #666;
-  color: white;
-  border: 2px solid #666;
+  opacity: 1;
+  border: 2px solid black;
+}
+
+.diff {
+  text-decoration: underline;
+  font-weight: bold;
+  color: red;
 }
