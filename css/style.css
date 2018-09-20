@@ -1,8 +1,8 @@
-/****************** Daytime ******************/
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 100px auto
+  margin: 100px auto;
+  background-color: white;
 }
 
 .container-top {

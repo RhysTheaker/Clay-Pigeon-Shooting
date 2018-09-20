@@ -1,7 +1,7 @@
 //Run this function for when the page has loaded
 $(document).ready(function(){
 
-  // ---------------------Globals---------------------
+  // -----------------------Globals-----------------------
   //Declare variable to monitor the position of the clay pigeon and the container where the clay pigeon exists
   var pigeon;
   var board;
@@ -48,9 +48,9 @@ $(document).ready(function(){
   //Variable which retains the previous score
   var previousScore = 0;
 
-  // ------------------End of Globals------------------
+  // --------------------End of Globals--------------------
 
-  // ---------------------Run Game--------------------
+  // ------------------------Run Game----------------------
   //Apply on-click functionality to change either the background or the difficulty of the game
 
   //Change background display to day
@@ -152,7 +152,7 @@ $(document).ready(function(){
   });
   // --------------------End of Run Game-------------------
 
-  // ---------------------Functions--------------------
+  // -----------------------Functions----------------------
   //Play game
   function playGame(){
 
@@ -172,6 +172,7 @@ $(document).ready(function(){
         pigeonMovement();
         pigeonCount++;
       }
+      //When a set amount of pigeons have been released AND the last pigeon has been either shot or has escaped then end the game
       else if ((pigeonCount >= 5) && ($("#clayPigeonImage").length == 0)){
         clearInterval(pull);
         $("#btn").show();
@@ -278,6 +279,7 @@ $(document).ready(function(){
 
   //Function which checks whether or not the pigeon has hit the boarder of the container
   function collide(){
+    //Condition for the pigeon to have collided with the container
     if ((pigeonLeft <= boardLeft) || (pigeonRight >= boardRight) || (pigeonTop <= boardTop)){
       return "hit";
     }
@@ -286,7 +288,9 @@ $(document).ready(function(){
   //Targets elements with the ID="clayPigeonImage". If this elements is clicked then the ID is removed to get rid of the pigeon as it has been "shot"
   function hitCheckListener(){
     $("#clayPigeonImage").click(function(){
+      //Remove the class of the pigeon if it has been clicked
       $(this).remove();
+      //Update score
       score = score + 40;
       $("#score").html("Score: " + score)
     });
@@ -362,11 +366,9 @@ $(document).ready(function(){
     this.sound.setAttribute("controls", "none");
     this.sound.style.display = "none";
     document.body.appendChild(this.sound);
+    //Plays the sound
     this.play = function(){
         this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
     }
   }
 
