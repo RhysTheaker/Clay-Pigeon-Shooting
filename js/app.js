@@ -167,13 +167,13 @@ $(document).ready(function(){
 
     var pull = setInterval(function(){
       //If the pigeon doesn't exist, then create it and initialise the movement
-      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 5)){
+      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 10)){
         createPigeon();
         pigeonMovement();
         pigeonCount++;
       }
       //When a set amount of pigeons have been released AND the last pigeon has been either shot or has escaped then end the game
-      else if ((pigeonCount >= 5) && ($("#clayPigeonImage").length == 0)){
+      else if ((pigeonCount >= 10) && ($("#clayPigeonImage").length == 0)){
         clearInterval(pull);
         $("#btn").show();
         $(".rightBtn").show();
