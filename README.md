@@ -24,32 +24,32 @@ The entire game was constructed with only a few of the basic langauges:
 
 This clay Pigeon Shooting game has two backgrounds that you can toggle between; day-time and night-time, as demonstrated below.
 
-###Daytime Background
+### Daytime Background
 
 ![Day background image](images/Easy-mode-image.png)
 
-###Nightime Background
+### Nightime Background
 
 ![Night background image](images/Easy-mode-image-night-time.png)
 
 In addition, the user may also toggle between three difficulties: 'Easy', 'Medium' and 'Hard'. As the difficulty increases, the size of the container, in which the player may shoot the pigeon, will consequently decrease. Furthermore, the size of the pigeon will decrease. It should be noted however that the speed of the pigeon will remian constant, and this decision will be elaborated on later in the 'Issues' section. Below, I have selected a few images to demonstrate the relative nature of the 3 difficulty modes.
 
-###Easy
+### Easy
 
 ![Easy difficulty](images/Easy-mode.png)
 
-###Medium
+### Medium
 
 ![Medium difficulty](images/Medium-mode.png)
 
-###Hard
+### Hard
 
 ![Hard difficulty](images/Hard-mode.png)
 
-##Recommendations
+## Recommendations
 The game only requires a (working) mouse! It goes without saying that you will probably need a hand that functions so you can click... 
 
-##Development Process
+## Development Process
 I tried to work in the most methodical way possible, i.e. starting with the most basic principles first to obtain a Minimal Viable Product (MVP) and then develop the game further once this was achieved.
 
 As mentioned in the opening paragraph, the decision to make a Clay Pigeon Shooting game was due to the old-school Nintendo game, 'Duck Hunt'. With this in mind I was adamant that the styling of the game would try to replicate the era from which the inspiration stemmed from.
@@ -65,12 +65,12 @@ The full game development process was as follows:
 * At this stage I had an MVP. From this, the simple additions, such as scoring, retaining a high-score, displaying the previous score etc. was easily added.
 * To improve the game further, I proceeded to add an additional background skin for the game and furthermore, 3 separate difficulties.   
 
-##Development Issues
+## Development Issues
 The main issue with this particular game is the 'hitbox' associated with clicking on the clay pigeon image. When the pigeon is programmed to move relatively fast, the system struggles to register where the user has clicked and therefore the user must aim at the very top of the target or else it is nearly impossible to hit.
 
 An additional minor issue with the game is the transition between the current pigeon being shot/hitting the edge of the 'board', and the display of the next pigeon. There is a brief moment when the new pigeon is at coordinates (0, 0) relative to the 'board', before it is 'fired' from either the bottom-left or bottom-right hand side of the 'board'. 
 
-##Future Improvements
+## Future Improvements
 
 * Introduce a parabolic trajectory to simulate real life objects.
 * Have a separate mode where multiple clay pigeons can be released at once.
