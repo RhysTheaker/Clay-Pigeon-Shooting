@@ -10,7 +10,8 @@ This Clay Pigeon Shooting game is a very similar concept to 'Duck Hunt'; the wel
 * If the player misses the pigeon, he/she will be deducted 10 points (scores will go negative if you have a terrible aim!)
 * The simple aim of the game is to hit as many pigeons as possible!
 
-##Summary
+## Summary
+
 This clay Pigeon Shooting game has two backgrounds that you can toggle between; day-time and night-time.
 
 
