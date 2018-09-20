@@ -212,7 +212,7 @@ $(document).ready(function(){
           clearInterval(leftInterval);
           $("#clayPigeonImage").remove();
           score = score - 10;
-          $("h2").html("Score: " + score)
+          $("#score").html("Score: " + score)
         }
       }, 10);
     }
@@ -238,7 +238,7 @@ $(document).ready(function(){
           clearInterval(rightInterval);
           $("#clayPigeonImage").remove();
           score = score - 10;
-          $("h2").html("Score: " + score)
+          $("#score").html("Score: " + score)
         }
       }, 10);
     }
@@ -288,7 +288,7 @@ $(document).ready(function(){
     $("#clayPigeonImage").click(function(){
       $(this).remove();
       score = score + 40;
-      $("h2").html("Score: " + score)
+      $("#score").html("Score: " + score)
     });
   }
 
@@ -297,8 +297,8 @@ $(document).ready(function(){
     //Create a new div, within the div with ID="container-top", which has an ID="clayPigeonImage" that makes the pigeon
     $("#container-top").append("<div id=\"clayPigeonImage\"></div>");
 
-    // //stop the previous sound of the gun shot so the game is ready to start the new sound
-    // shot.stop();
+    //A new pigeon is created so update the ammo for the user
+    $("#attemptNum").html("Attempts Remaining: 1");
 
     //Select the size of the pigeon depening on which difficulty mode is currently selected
     $("#clayPigeonImage").css({
@@ -377,6 +377,8 @@ $(document).ready(function(){
       var shot = new sound('sound/gunShot.mp3');
       //Play the sound
       shot.play();
+      //Change the text to inform the user he has used his one and only bullet to shoot the pigeon
+      $("#attemptNum").html("Attempts Remaining: 0");
     });
   }
 
@@ -395,7 +397,7 @@ $(document).ready(function(){
     //Reset the score for the next game
     score = 0;
     //Update the initial score for the next game
-    $("h2").html("Score: " + score);
+    $("#score").html("Score: " + score);
     //Remove the final score text from the previous game
     $("p").remove();
   }
