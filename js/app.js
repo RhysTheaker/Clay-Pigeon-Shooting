@@ -47,6 +47,7 @@ $(document).ready(function(){
 
   //Variable which retains the previous score
   var previousScore = 0;
+
   // ------------------End of Globals------------------
 
   // ---------------------Run Game--------------------
@@ -89,7 +90,7 @@ $(document).ready(function(){
       "height": "450px"
     });
     $(".gameInstructions").css({
-      "height": "80px"
+      "height": "100px"
     });
     pigeonWidth = 100;
     pigeonHeight = 50;
@@ -155,19 +156,23 @@ $(document).ready(function(){
   //Play game
   function playGame(){
 
+    //Hide the options for difficulty and the game instructions whilst the game is playing
     $("#btn").hide();
     $(".leftBtn").hide();
     $(".rightBtn").hide();
     $(".gameInstructions").hide();
 
+    //Apply an event listener so that when the user clicks, a gun sound is executed
+    gunShotListener();
+
     var pull = setInterval(function(){
       //If the pigeon doesn't exist, then create it and initialise the movement
-      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 1)){
+      if(($("#clayPigeonImage").length == 0) && (pigeonCount < 5)){
         createPigeon();
         pigeonMovement();
         pigeonCount++;
       }
-      else if ((pigeonCount >= 1) && ($("#clayPigeonImage").length == 0)){
+      else if ((pigeonCount >= 5) && ($("#clayPigeonImage").length == 0)){
         clearInterval(pull);
         $("#btn").show();
         $(".rightBtn").show();
@@ -292,6 +297,9 @@ $(document).ready(function(){
     //Create a new div, within the div with ID="container-top", which has an ID="clayPigeonImage" that makes the pigeon
     $("#container-top").append("<div id=\"clayPigeonImage\"></div>");
 
+    // //stop the previous sound of the gun shot so the game is ready to start the new sound
+    // shot.stop();
+
     //Select the size of the pigeon depening on which difficulty mode is currently selected
     $("#clayPigeonImage").css({
       "height": pigeonHeight + "px",
@@ -345,6 +353,31 @@ $(document).ready(function(){
   function newXRight(xval){
     xval -= 2;
     return xval;
+  }
+
+  //Gun sound
+  function sound(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+  }
+
+  //Gun sound event listener
+  function gunShotListener(){
+    $("#container-top").click(function(){
+      //Create gun-audio variable
+      var shot = new sound('sound/gunShot.mp3');
+      //Play the sound
+      shot.play();
+    });
   }
 
   //Restart the game
