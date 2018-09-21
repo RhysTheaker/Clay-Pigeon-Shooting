@@ -35,7 +35,7 @@ In order to obtain a copy of the full working code then proceed with the followi
 
 ## Summary
 
-This clay Pigeon Shooting game has two backgrounds that you can toggle between; day-time and night-time, as demonstrated below.
+This Clay Pigeon Shooting game has two backgrounds that you can toggle between; day-time and night-time, as demonstrated below.
 
 ### Daytime Background
 
