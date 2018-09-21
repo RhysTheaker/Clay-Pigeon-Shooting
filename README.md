@@ -18,7 +18,7 @@ The entire game was constructed with only a few of the basic langauges:
 * Successfully hitting the pigeon will gain the player 30 points
 * If the player misses the pigeon, he/she will be deducted 10 points (scores will go negative if you have a terrible aim!)
 * The simple aim of the game is to hit as many pigeons as possible!
-* **TO NOTE**: Due to the ..... insert comments about clicking issues and how you should aim towards the top of the pigeon
+* **TO NOTE**: In order to successfully click the pigeon, more-so in the hard difficulty mode, the user must aim and click either very slightly above the clay pigeon or at the very top of the image. This is a slight development problem discussed later on.
 
 ## Summary
 
@@ -50,7 +50,7 @@ In addition, the user may also toggle between three difficulties: 'Easy', 'Mediu
 The game only requires a (working) mouse! It goes without saying that you will probably need a hand that functions so you can click... 
 
 ## Development Process
-I tried to work in the most methodical way possible, i.e. starting with the most basic principles first to obtain a Minimal Viable Product (MVP) and then develop the game further once this was achieved.
+I tried to work in the most methodical way possible, i.e. starting with the most basic principles first to obtain a Minimum Viable Product (MVP) and then develop the game further once this was achieved.
 
 As mentioned in the opening paragraph, the decision to make a Clay Pigeon Shooting game was due to the old-school Nintendo game, 'Duck Hunt'. With this in mind I was adamant that the styling of the game would try to replicate the era from which the inspiration stemmed from.
 
@@ -66,7 +66,7 @@ The full game development process was as follows:
 * To improve the game further, I proceeded to add an additional background skin for the game and furthermore, 3 separate difficulties.   
 
 ## Development Issues
-The main issue with this particular game is the 'hitbox' associated with clicking on the clay pigeon image. When the pigeon is programmed to move relatively fast, the system struggles to register where the user has clicked and therefore the user must aim at the very top of the target or else it is nearly impossible to hit.
+The main issue with this particular game is the 'hitbox' associated with clicking on the clay pigeon image. When the pigeon is programmed to move relatively fast, the system struggles to register where the user has clicked, at that exact instant, and therefore the user must aim at the very top of the target or else it is nearly impossible to hit. Consequently, when the difficulty modes were implemented, rather than altering the speed of the clay pigeon, I opted to change the size of the container in which the pigeon can be 'shot' and also the size of the clay pigeon itself.
 
 An additional minor issue with the game is the transition between the current pigeon being shot/hitting the edge of the 'board', and the display of the next pigeon. There is a brief moment when the new pigeon is at coordinates (0, 0) relative to the 'board', before it is 'fired' from either the bottom-left or bottom-right hand side of the 'board'. 
 
