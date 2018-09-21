@@ -69,7 +69,7 @@ As mentioned in the opening paragraph, the decision to make a Clay Pigeon Shooti
 
 The full game development process was as follows:
 
-* Firstly, the 'board' where the game would be played was created. This was purely using basic HTML and CSS.
+* Firstly, the 'board' where the game would be played was created. This was done purely using basic HTML and CSS.
 * The next task was to create any images that would be used in the game. Luckily there was only one, that being the clay pigeon, and again only basic HTML and CSS was required.
 * With all the styling completed within no time at all, all that was left, corresponding to around 95% of the work, was implementing the JavaScript/jQuery such that there was a game to play.
 * First, the animation for the clay pigeon was created. This involved using the 'setInterval' property. This allowed me to iterate a function(s) once every set time period had ellapsed. By targeting the CSS position property of the div corresponding to the clay pigeon, I was able to implement the movement.
