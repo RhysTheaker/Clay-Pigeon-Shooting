@@ -20,6 +20,19 @@ The entire game was constructed with only a few of the basic langauges:
 * The simple aim of the game is to hit as many pigeons as possible!
 * **TO NOTE**: In order to successfully click the pigeon, more-so in the hard difficulty mode, the user must aim and click either very slightly above the clay pigeon or at the very top of the image. This is a slight development problem discussed later on.
 
+## How to play
+
+By clicking on the following link, you will be relocated to the website where the game is hosted...
+
+[Click here to play the game](https://rhystheaker.github.io/Sparta-Game-Project/)
+
+In order to obtain a copy of the full working code then proceed with the following steps:
+
+1. Go to my [GitHub Profile](https://github.com/RhysTheaker/Sparta-Game-Project) which corresponds to the game.
+2. Click the ![Repository cloning button](images/Git-clone-image.png) image and copy the address that is provided.
+3. In your console, re-locate to where you wish the cloned-repository to be stored.
+4. In your command line type "git clone URL", where URL is the address that you have just copied from GitHub, and finally press enter. 
+
 ## Summary
 
 This clay Pigeon Shooting game has two backgrounds that you can toggle between; day-time and night-time, as demonstrated below.
