@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 2px auto;
+  margin: 0 auto;
   background-color: white;
 }
 
@@ -23,6 +23,10 @@ body {
 
 #titleStart {
   display: block;
+}
+
+#title {
+  display: inline-block;
 }
 
 #scores {
@@ -107,9 +111,9 @@ h3 {
   display: inline-block;
 }
 
-#title {
+/* #title {
   display: inline-block;
-}
+} */
 
 #btn {
   font-size: 1.5em;
@@ -121,6 +125,7 @@ h3 {
   outline: none;
   border-top-left-radius: 1.5em;
   border-bottom-right-radius: 1.5em;
+  display: inline-block;
 }
 #btn:hover {
   color: white;
