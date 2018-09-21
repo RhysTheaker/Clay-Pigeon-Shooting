@@ -89,7 +89,7 @@ An additional minor issue with the game is the transition between the current pi
 * Have a separate mode where multiple clay pigeons can be released at once.
 * Have additional objects that can be targeted.
 * Include an annimation for when the clay pigeon has been hit.
-* Maybe include some background music whilst the game is being played
+* Maybe include some background music whilst the game is being played.
 * Leaderboard?
 
 
