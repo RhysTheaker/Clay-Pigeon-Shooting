@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin: 100px auto;
+  margin: 2px auto;
   background-color: white;
 }
 
@@ -18,7 +18,15 @@ body {
   height: 50px;
   margin: 0 auto;
   background-color: white;
-  display: inline-block;
+  display: block;
+}
+
+#titleStart {
+  display: block;
+}
+
+#scores {
+  display: block;
 }
 
 .leftBtn {
@@ -96,13 +104,18 @@ h3 {
 
 .btn-container {
   text-align: center;
+  display: inline-block;
+}
+
+#title {
+  display: inline-block;
 }
 
 #btn {
   font-size: 1.5em;
   padding:.5em 1.5em;
   background-color: lightskyblue;
-  margin: 5% auto;
+  margin: 5px 5px;
   color: white;
   transition: .1s;
   outline: none;
