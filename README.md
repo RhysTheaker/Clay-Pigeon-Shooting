@@ -24,11 +24,11 @@ The entire game was constructed with only a few of the basic langauges:
 
 By clicking on the following link, you will be relocated to the website where the game is hosted...
 
-[Click here to play the game](https://rhystheaker.github.io/Sparta-Game-Project/)
+[Click here to play the game](https://rhystheaker.github.io/Clay-Pigeon-Shooting/)
 
 In order to obtain a copy of the full working code then proceed with the following steps:
 
-1. Go to my [GitHub Profile](https://github.com/RhysTheaker/Sparta-Game-Project) which corresponds to the game.
+1. Go to my [GitHub Profile](https://github.com/RhysTheaker/Clay-Pigeon-Shooting) which corresponds to the game.
 2. Click the ![Repository cloning button](images/Git-clone-image.png) image and copy the address that is provided.
 3. In your console, re-locate to where you wish the cloned-repository to be stored.
 4. In your command line type "git clone URL", where URL is the address that you have just copied from GitHub, and finally press enter. 
