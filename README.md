@@ -1,7 +1,7 @@
 # Clay Pigeon Shooting
 This Clay Pigeon Shooting game is a very similar concept to 'Duck Hunt'; the well known light gun shooter video game developed in 1984 by the people at Nintendo for the historic Nintendo Entertainment System (NES). The nostalgia of games like Duck Hunt, and other similar one-person-shooters, has inspired the creation of this Clay Pigeon Shooter.
 
-##Tools
+## Tools
 
 The entire game was constructed with only a few of the basic langauges:
 
