@@ -13,7 +13,7 @@ The entire game was constructed with only a few of the basic langauges:
 ## How To Play
 
 * The player must attempt to hit 10 clay pigeons.
-* The player only gets **one** shot per pigeon (so make sure your aim in on point!). If the player misses the pigeon then he/she will no longer be able to hit the pigeon until the next is released.
+* The player only gets **one** shot per pigeon (so make sure your aim is on point!). If the player misses the pigeon then he/she will no longer be able to hit the pigeon until the next is released.
 * The clay pigeons are released one at a time, and randomly with respect to the right and left hand side of the 'board'. Only when the pigeon has either been successfully shot **or** the pigeon manages to escape from the shooting range (i.e. collide with the edge of the container) will the next pigeon be released.
 * Successfully hitting the pigeon will gain the player 30 points
 * If the player misses the pigeon, he/she will be deducted 10 points (scores will go negative if you have a terrible aim!)
